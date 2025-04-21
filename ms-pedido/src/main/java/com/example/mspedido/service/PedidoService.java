@@ -7,9 +7,10 @@ import java.util.Optional;
 
 public interface PedidoService {
     List<Pedido> listar();
+    Optional<Pedido> listarPorId(Integer id);
     Optional<Pedido> buscar(Integer id);
-    Pedido guardar(Pedido categoria);
-    Pedido actualizar(Integer id, Pedido categoria );
+    Pedido guardar(Pedido pedido);
+    Pedido actualizar(Integer id, Pedido pedido );
     void eliminar(Integer id);
 }
 

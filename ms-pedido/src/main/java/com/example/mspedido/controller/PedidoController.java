@@ -15,25 +15,32 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
+//    @RequestMapping
+//    public List<Pedido> listar() {
+//        return pedidoService.listar();
+//    }
+
     @RequestMapping
-    public List<Pedido> listar() {
+    public List<Pedido> listarPorId(Integer id) {
         return pedidoService.listar();
     }
+
 
     @RequestMapping("/{id}")
     public Optional<Pedido> buscar(@PathVariable Integer id) {
         return pedidoService.buscar(id);
     }
 
+
     @PostMapping
-    public Pedido guardar(@RequestBody Pedido categoria) {
-        System.out.println(categoria);
-        return pedidoService.guardar(categoria);
+    public Pedido guardar(@RequestBody Pedido pedido) {
+        System.out.println(pedido);
+        return pedidoService.guardar(pedido);
     }
 
     @PutMapping("/{id}")
-    public Pedido actualizar(@PathVariable Integer id, @RequestBody Pedido categoria) {
-        return pedidoService.actualizar(id, categoria);
+    public Pedido actualizar(@PathVariable Integer id, @RequestBody Pedido pedido) {
+        return pedidoService.actualizar(id, pedido);
     }
 
     @DeleteMapping("/{id}")
