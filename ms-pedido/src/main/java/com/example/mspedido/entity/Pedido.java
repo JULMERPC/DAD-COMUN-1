@@ -21,7 +21,7 @@
 //    private Integer id;
 //    private String serie;
 //    private String numero;
-//    private String descricao;
+//    private String descripcion;
 //    private Integer clienteId;
 //
 //    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -70,7 +70,7 @@
 //
 //    private String serie;
 //    private String numero;
-//    private String descricao;
+//    private String descripcion;
 //    private Integer clienteId;
 //
 //    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -98,7 +98,7 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
-//@Table(name = "pedido")
+@Table(name = "pedido")
 @Data
 public class Pedido {
 
@@ -108,18 +108,20 @@ public class Pedido {
 
     private String serie;
     private String numero;
-    private String descricao;
+    private String descripcion;
     private Integer clienteId;
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id")
     private List<PedidoDetalle> detalle;
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "venta_id")
+//    private List<PedidoDetalle> detalle;
+
 
     @Transient
     private Cliente cliente;
-
-    // --- Getters y Setters ---
 
     public Integer getId() {
         return id;
@@ -145,12 +147,12 @@ public class Pedido {
         this.numero = numero;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Integer getClienteId() {

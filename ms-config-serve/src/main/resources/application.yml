@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/JULMERPC/DAD-2025-1.git # ruta del repositorio git
+          uri: https://github.com/JULMERPC/DAD-COMUN-1.git # ruta del repositorio git
           searchPaths: config-data
           default-label: main
 

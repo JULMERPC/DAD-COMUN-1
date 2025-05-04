@@ -25,18 +25,12 @@ public class Pago {
     private Integer id;
     private String producto;
     private String cantidad;
+
     private String codigo;
     private String fecha;
+    private Categoria categoria;
 
-    // --- Getters y Setters ---
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getProducto() {
         return producto;
@@ -44,6 +38,14 @@ public class Pago {
 
     public void setProducto(String producto) {
         this.producto = producto;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCantidad() {
@@ -69,4 +71,28 @@ public class Pago {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Pago{" +
+                "id=" + id +
+                ", producto='" + producto + '\'' +
+                ", cantidad='" + cantidad + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", categoria=" + categoria +
+                '}';
+    }
+
+
+
 }

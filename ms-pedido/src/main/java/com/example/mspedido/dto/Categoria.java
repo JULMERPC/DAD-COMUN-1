@@ -1,6 +1,5 @@
 package com.example.mspedido.dto;
 
-
 import lombok.Data;
 
 @Data

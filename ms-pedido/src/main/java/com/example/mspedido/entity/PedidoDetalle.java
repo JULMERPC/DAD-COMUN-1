@@ -46,15 +46,13 @@ public class PedidoDetalle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String producto;
-    private Integer cantidad;
-    private Double precio;
-    private Integer pagoId; // <-- Necesario para getPagoId()
+    public String getProducto() {
+        return producto;
+    }
 
-    @Transient
-    private Pago pago; // <-- Necesario para setPago()
-
-    // --- Getters y Setters ---
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
 
     public Integer getId() {
         return id;
@@ -64,19 +62,11 @@ public class PedidoDetalle {
         this.id = id;
     }
 
-    public String getProducto() {
-        return producto;
-    }
-
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
-    public Integer getCantidad() {
+    public Double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(Double cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -102,5 +92,30 @@ public class PedidoDetalle {
 
     public void setPago(Pago pago) {
         this.pago = pago;
+    }
+
+    private String producto;
+    private Double cantidad;
+    private Double precio;
+    private Integer pagoId; // <-- Necesario para getPagoId()
+
+    @Transient
+    private Pago pago; // <-- Necesario para setPago()
+
+    public PedidoDetalle() {
+        this.cantidad = (double) 0;
+        this.precio = (double) 0;
+    }
+
+    @Override
+    public String toString() {
+        return "PedidoDetalle{" +
+                "id=" + id +
+                ", producto='" + producto + '\'' +
+                ", cantidad=" + cantidad +
+                ", precio=" + precio +
+                ", pagoId=" + pagoId +
+                ", pago=" + pago +
+                '}';
     }
 }
