@@ -5,6 +5,7 @@ import com.example.mspedido.feign.ClienteFeign;
 import com.example.mspedido.feign.PagoFeign;
 import com.example.mspedido.repository.PedidoRepository;
 import com.example.mspedido.service.PedidoService;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -93,6 +94,15 @@ public class PedidoController {
 //    }
 
 
+
+    @CircuitBreaker(name = "pedidoListarPorIdCB", fallbackMethod = "fallBackPedidoListarPorIdCB")
+
+
+    private ResponseEntity<Pedido> fallBackPedidoListarPorIdCB(@PathVariable(required = true) Integer id, RuntimeException e) {
+        Pedido pedido = new Pedido();
+        pedido.setId(90000);
+        return ResponseEntity.ok().body(pedido);
+    }
 
 
 
